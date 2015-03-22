@@ -4,6 +4,7 @@ module Rrssb
       attr_writer :active_services
       attr_writer :default_share_title
       attr_accessor :facebook_app_id
+      attr_accessor :icons_only
 
       def active_services
         @active_services or default_services
