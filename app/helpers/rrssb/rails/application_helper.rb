@@ -92,6 +92,36 @@ module Rrssb
           'rrssb-normal'
         end
       end
+
+      # Builds a tweet that is less than 140 chars
+      # from title, share_url and username.
+      # Attempts to format as `[title] [share_url] [username]`,
+      # falls backs to `[title] [share_url]`, `[share_url] [username]`,
+      # `[share_url]`, `[username]` or finally an empty string if username wasn't set.
+      def rrssb_build_tweet(title, share_url)
+        max_tweet_length = 140
+        title = title[:string]
+        username = rrssb_twitter_username
+        url = share_url[:string]
+
+        if title.length + url.length + (username ? username.length : 0) <= max_tweet_length
+          tweet = [title, url]
+          tweet << username if username
+          tweet.join(' ')
+        elsif title.length + url.length <= max_tweet_length
+          "#{title} #{url}"
+        elsif url.length + (username ? username.length : 0) <= max_tweet_length
+          tweet = [url]
+          tweet << username if username
+          tweet.join(' ')
+        elsif url.length <= max_tweet_length
+          url
+        elsif username
+          username
+        else
+          ' '
+        end
+      end
       def rrssb_facebook_app_id
         ::Rails.application.config.rrssb_rails.facebook_app_id
       end
