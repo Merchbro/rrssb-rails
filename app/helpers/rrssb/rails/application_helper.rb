@@ -3,7 +3,7 @@ module Rrssb
   module Rails
     module ApplicationHelper
 
-      def rrssb_buttons(options={})
+      def rrssb_share_buttons(options={})
         title = rrssb_share_title(options)
         share_url = rrssb_share_url(options)
         email_subject = rrssb_email_subject(title, options)
