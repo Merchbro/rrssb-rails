@@ -25,5 +25,28 @@ module Rrssb
       end
 
     end
+
+    # @return [Rrssb::Rails::Configuration] Rrssb's current configuration
+    def self.configuration
+      @configuration ||= Configuration.new
+    end
+
+    # Set Rrssb's configuration
+    # @param config [Rrssb::Rails::Configuration]
+    def self.configuration=(config)
+      @configuration = config
+    end
+
+    # Modify Rrssb's current configuration
+    # @yieldparam [Rrssb::Rails::Configuration] config current Rrssb config
+    # ```
+    # Rrssb::Rails.configure do |config|
+    #   config.icons_only = true
+    # end
+    # ```
+    def self.configure
+      yield configuration
+    end
+
   end
 end
