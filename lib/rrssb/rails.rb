@@ -1,4 +1,4 @@
-require "rrssb/rails/version"
+require 'rrssb/rails/configuration'
 
 module Rrssb
   module Rails
