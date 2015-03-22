@@ -71,7 +71,7 @@ module Rrssb
 
 
       def rrssb_icon_only_mode(override)
-        if ::Rails.application.config.rrssb_rails.icon_only_mode || override
+        if ::Rrssb::Rails.configuration.icons_only || override
           'rrssb-icon-only'
         else
           'rrssb-normal'
@@ -119,15 +119,15 @@ module Rrssb
         end
       end
       def rrssb_facebook_app_id
-        ::Rails.application.config.rrssb_rails.facebook_app_id
+        ::Rrssb::Rails.configuration.facebook_app_id
       end
 
       def rrssb_default_share_title
-        rrssb_string_encoded_hash(::Rails.application.config.rrssb_rails.default_share_title)
+        rrssb_string_encoded_hash(::Rrssb::Rails.configuration.default_share_title)
       end
 
       def rrssb_active_services
-        ::Rails.application.config.rrssb_rails.active_services
+        ::Rrssb::Rails.configuration.active_services
       end
 
       def rrssb_string_encoded_hash(val)
