@@ -12,9 +12,10 @@ module Rrssb
 
       def default_services
         {
-            email: true,
-            twitter:  '@brentmulligan',
             facebook: true,
+            twitter:  '@brentmulligan',
+            email: true,
+            googleplus: true,
             reddit: true
         }
       end
