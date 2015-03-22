@@ -1,31 +1,9 @@
-# Rrssb::Rails
+# rrssb-rails - Ridiculously Responsive Social Sharing Buttons
 
-TODO: Write a gem description
+This is Rails gem for the popular **[Ridiculously Responsive Social Sharing Buttons](https://github.com/kni-labs/rrssb)**
+created by by **[@dbox](http://www.twitter.com/dbox)** and **[@joshuatuscan](http://www.twitter.com/joshuatuscan)** for **[KNI Labs](http://kurtnoble.com/)**.
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'rrssb-rails'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rrssb-rails
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/rrssb-rails/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+**Stand by - still a work in progress.**
