@@ -1,0 +1,15 @@
+ul.rrssb-buttons {
+  &.rrssb-icon-only {
+    &.large-format {
+      li a {
+        .rrssb-text {
+          visibility: hidden;
+        }
+        .rrssb-icon {
+          width: 17%;
+          left: -5%;
+        }
+      }
+    }
+  }
+}
