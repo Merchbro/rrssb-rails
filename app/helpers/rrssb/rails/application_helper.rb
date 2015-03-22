@@ -19,7 +19,7 @@ module Rrssb
                                                          tweet_body: tweet_body,
                                                          email_subject: email_subject,
                                                          media_url: media_url,
-                                                         fb_share_endpoint: fb_share_endpoint
+                                                         fb_share_endpoint: fb_share_endpoint,
                                                          icon_display_class: icon_display_class
                                                      }
       end
@@ -38,22 +38,7 @@ module Rrssb
         if options[:tweet_body]
           rrssb_string_encoded_hash(options[:tweet_body])
         else
-          max_tweet_length = 140
-          title = title[:string]
-          username = rrssb_active_services[:twitter]
-          url = share_url[:string]
-
-          # If `+title+ +url+ +username+` length is not greater than
-          # +max_tweet_length+ concatenate and return...Otherwise fall back to
-          # `+title+ +url+`, if still too long just use `+url+` and
-          # only assume it will not be too long.
-          tweet_body =  if title.length + username.length + url.length <= max_tweet_length
-                          "#{title} #{url} #{username}"
-                        elsif title.length + url.length <= max_tweet_length
-                          "#{title} #{url}"
-                        else
-                          url
-                        end
+          tweet_body = rrssb_build_tweet(title, share_url)
           rrssb_string_encoded_hash(tweet_body)
         end
       end
@@ -120,6 +105,17 @@ module Rrssb
           username
         else
           ' '
+        end
+      end
+
+      # Guards against misconfiguration (setting true instead of "@username" for twitter)
+      # and ensures an "@" was included.
+      def rrssb_twitter_username
+        twitter = rrssb_active_services[:twitter]
+        if twitter && twitter.class == String
+          twitter.at(0) == '@' ? twitter : "@#{twitter}"
+        else
+          false
         end
       end
       def rrssb_facebook_app_id
