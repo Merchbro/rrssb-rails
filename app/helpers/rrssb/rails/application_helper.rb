@@ -10,6 +10,7 @@ module Rrssb
         tweet_body = rrssb_tweet_body(title, share_url, options)
         media_url = rrssb_media_url(options)
         fb_share_endpoint = rrssb_fb_share_endpoint(share_url[:encoded])
+        icon_display_class = rrssb_icon_only_mode(options[:icons_only])
 
         render partial: 'rrssb/rails/sharing_buttons', locals: {
                                                          active_services: rrssb_active_services,
@@ -19,6 +20,7 @@ module Rrssb
                                                          email_subject: email_subject,
                                                          media_url: media_url,
                                                          fb_share_endpoint: fb_share_endpoint
+                                                         icon_display_class: icon_display_class
                                                      }
       end
 
@@ -82,6 +84,14 @@ module Rrssb
         end
       end
 
+
+      def rrssb_icon_only_mode(override)
+        if ::Rails.application.config.rrssb_rails.icon_only_mode || override
+          'rrssb-icon-only'
+        else
+          'rrssb-normal'
+        end
+      end
       def rrssb_facebook_app_id
         ::Rails.application.config.rrssb_rails.facebook_app_id
       end
