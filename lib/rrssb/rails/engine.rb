@@ -1,3 +1,4 @@
+require 'rails'
 module Rrssb
   module Rails
     class Engine < ::Rails::Engine
