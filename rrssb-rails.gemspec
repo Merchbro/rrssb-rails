@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Rrssb::Rails::VERSION
   spec.authors       = ["Brent Mulligan"]
   spec.email         = ["brent@merchbro.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = 'Ridiculously Responsive Social Sharing Buttons for Rails'
+  spec.description   = 'Ridiculously Responsive Social Sharing Buttons for Rails is based on RRSSB from KNI Labs'
+  spec.homepage      = "https://github.com/Merchbro/rrssb-rails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
