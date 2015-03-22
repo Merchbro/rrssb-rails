@@ -4,6 +4,5 @@ require 'rrssb/rails/engine'
 
 module Rrssb
   module Rails
-    # Your code goes here...
   end
 end
